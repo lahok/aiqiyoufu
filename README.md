@@ -45,3 +45,4 @@ The AI dialogue function is **disabled by default**. To enable it:
 4. Ensure you have set the `GEMINI_API_KEY` in your environment (see "Run Locally" section).
 
 （本企业官网会在本地编译输出到 `out` 目录，该目录即为最终发布的静态页面网站。）
+展会详细：设置时行首不要有缩进， 不然markdown渲染会失败。

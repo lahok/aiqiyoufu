@@ -267,6 +267,13 @@ const App: React.FC = () => {
                   </div>
                 ))}
                 <div className="flex items-start">
+                  <span className="text-3xl mr-6">📞</span>
+                  <div>
+                    <h4 className="font-bold text-blue-500 mb-2">{t.contact.phone}</h4>
+                    <p className="text-slate-400 font-light text-xl tracking-tight">{SITE_CONFIG.phone}</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
                   <span className="text-3xl mr-6">✉️</span>
                   <div>
                     <h4 className="font-bold text-blue-500 mb-2">{t.contact.email}</h4>

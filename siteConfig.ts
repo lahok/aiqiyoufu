@@ -5,24 +5,34 @@ export const SITE_CONFIG = {
     en: "AIYOU Business Group",
     ru: "AIYOU Business Group"
   },
-  email: "contact@aiyou.biz",
+  email: "15268431899@163.com",
+  phone: "4008-499-007",
   offices: [
     {
-      id: "moscow",
+      id: "longcheng",
       city: { zh: "莫斯科", en: "Moscow", ru: "Москва" },
       address: {
-        zh: "Presnenskaya Nab., 12, Moscow City",
-        en: "Presnenskaya Nab., 12, Moscow City",
-        ru: "Пресненская наб., 12, Москва-Сити"
+        zh: "俄罗斯龙城国际数字电商科技园",
+        en: "Longcheng International Technology Park of Digital E-Commerce, 56, Section 1, Verkhnie Polya, Russia",
+        ru: "Международный технологический парк цифровой электронной коммерции Лунчэн, Россия, Верхние поля 56 с1"
       }
     },
     {
-      id: "beijing",
-      city: { zh: "北京", en: "Beijing", ru: "Пекин" },
+      id: "greenwood",
+      city: { zh: "莫斯科", en: "Moscow", ru: "Москва" },
       address: {
-        zh: "北京市朝阳区建国路 88 号",
-        en: "No.88 Jianguo Road, Chaoyang District, Beijing",
-        ru: "Пекин, No.88 Jianguo Road, район Чаоян"
+        zh: "格林伍德办公室",
+        en: "Section 33, Greenwood Territory, Putilkovo Urban-Type Settlement, Krasnogorsk Urban District, Moscow Oblast, 143440, Russia",
+        ru: "территория Гринвуд, с33, посёлок городского типа Путилково, городской округ Красногорск, Московская область, 143440"
+      }
+    },
+    {
+      id: "shanghai",
+      city: { zh: "上海", en: "Shanghai", ru: "Шанхай" },
+      address: {
+        zh: "中国上海市闵行区莘建东路绿地科技岛广场c座304室",
+        en: "Room 304, Building C, Greenland Technology Island Plaza, East Xinjian Road, Minhang District, Shanghai, China",
+        ru: "Помещение 304, Здание С, Площадь «Зеленый Ланд Технологический Остров», Восточная улица Синьцзянь, Район Миньхан, Шанхай, Китай"
       }
     }
   ],

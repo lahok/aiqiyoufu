@@ -29,9 +29,8 @@ export interface Translation {
   contact: {
     title: string;
     email: string;
+    phone: string;
     address: string;
-    moscow: string;
-    beijing: string;
   };
 }
 

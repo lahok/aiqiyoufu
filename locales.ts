@@ -197,10 +197,9 @@ export const translations: Record<Locale, ExtendedTranslation> = {
     },
     contact: {
       title: '联系我们',
-      email: '企业邮箱',
-      address: '办公地址',
-      moscow: '莫斯科：Presnenskaya Nab., 12, Moscow City',
-      beijing: '北京：北京市朝阳区建国路 88 号'
+      email: '咨询邮箱',
+      phone: '咨询热线',
+      address: '办公地址'
     }
   },
   en: {
@@ -232,9 +231,8 @@ export const translations: Record<Locale, ExtendedTranslation> = {
     contact: {
       title: 'Contact Us',
       email: 'Email',
-      address: 'Office',
-      moscow: 'Moscow: Presnenskaya Nab., 12, Moscow City',
-      beijing: 'Beijing: No.88 Jianguo Road, Chaoyang Dist.'
+      phone: 'Phone',
+      address: 'Office'
     }
   },
   ru: {
@@ -266,9 +264,8 @@ export const translations: Record<Locale, ExtendedTranslation> = {
     contact: {
       title: 'Свяжитесь с нами',
       email: 'Email',
-      address: 'Адрес',
-      moscow: 'Москва: Пресненская наб., 12, Москва-Сити',
-      beijing: 'Пекин: No.88 Jianguo Road, Chaoyang Dist.'
+      phone: 'Телефон',
+      address: 'Адрес'
     }
   }
 };
