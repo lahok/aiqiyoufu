@@ -275,7 +275,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      <AIConsultant />
+      {SITE_CONFIG.features?.aiConsultant && <AIConsultant />}
     </div>
   );
 };

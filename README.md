@@ -28,4 +28,20 @@ The corporate website is designed to be compiled locally into a static site.
 2. After building, all static assets will be generated in the `out` directory.
 3. The `out` directory is the final static website that you can deploy directly to your web server or CDN.
 
+## Configuration
+
+### AI Consultant (Chatbot)
+
+The AI dialogue function is **disabled by default**. To enable it:
+
+1. Open `siteConfig.ts`.
+2. Find the `features` object at the bottom.
+3. Set `aiConsultant` to `true`:
+   ```typescript
+   features: {
+     aiConsultant: true
+   }
+   ```
+4. Ensure you have set the `GEMINI_API_KEY` in your environment (see "Run Locally" section).
+
 （本企业官网会在本地编译输出到 `out` 目录，该目录即为最终发布的静态页面网站。）
