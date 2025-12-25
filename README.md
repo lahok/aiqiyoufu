@@ -18,3 +18,14 @@ View your app in AI Studio: https://ai.studio/apps/temp/1
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Build and Deploy
+
+The corporate website is designed to be compiled locally into a static site.
+
+1. Build for production:
+   `npm run build`
+2. After building, all static assets will be generated in the `out` directory.
+3. The `out` directory is the final static website that you can deploy directly to your web server or CDN.
+
+（本企业官网会在本地编译输出到 `out` 目录，该目录即为最终发布的静态页面网站。）
