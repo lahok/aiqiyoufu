@@ -1,5 +1,7 @@
 
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Locale, Exhibition } from './types';
 import { translations } from './locales';
 import { SITE_CONFIG } from './siteConfig';
@@ -302,10 +304,10 @@ const App: React.FC = () => {
               </button>
             </div>
             <div className="flex-1 overflow-y-auto px-10 py-10">
-              <div className="prose prose-slate max-w-none">
-                <div className="whitespace-pre-wrap text-slate-600 leading-relaxed text-lg font-light">
+              <div className="prose prose-slate max-w-none prose-lg">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
                   {selectedExhibition.details}
-                </div>
+                </ReactMarkdown>
               </div>
             </div>
             <div className="px-10 py-8 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-6">

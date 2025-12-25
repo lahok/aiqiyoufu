@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+    --brand-blue: #1e3a8a;
+    --brand-dark: #111827;
+}
+
+body {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+    scroll-behavior: smooth;
+}
+
+@theme {
+  --color-brand-blue: #1e3a8a;
+  --color-brand-dark: #111827;
+}
+
+.gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600;
+}
+
+.hero-gradient {
+    background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(17, 24, 39, 0.9)), url('https://images.unsplash.com/photo-1513326738677-b964603b136d?q=80&w=2000&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+.glass-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
