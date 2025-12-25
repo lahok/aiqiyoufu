@@ -26,7 +26,7 @@
 ### B. 核心模块 (Sections)
 
 1. **Hero Section**：高质量背景图（莫斯科商务区/红场风格），三语核心标语（Slogan）。
-2. **Service Grid**：展示三大核心业务：海外组展、展台设计搭建、商务咨询。
+2. **Service Grid**：展示四大核心业务：海外组展、展台设计搭建、莫斯科MOQ订货中心、商务咨询。
 3. **Industry Focus**：展示优势行业，如工业机械、电子信息、农业机械等。
 4. **Exhibition Calendar (ZH Only)**：
 * **仅在 `locale === 'zh'` 时渲染**。

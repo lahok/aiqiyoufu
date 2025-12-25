@@ -124,7 +124,7 @@ const App: React.FC = () => {
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">{t.services.title}</h2>
             <div className="h-1.5 w-24 bg-brand-blue mx-auto rounded-full"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {t.services.list.map((item, i) => (
               <div key={i} className="bg-white p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl transition-all group">
                 <div className="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center text-4xl mb-8 group-hover:bg-brand-blue group-hover:text-white transition-all duration-500">

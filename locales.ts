@@ -21,6 +21,7 @@ export const translations: Record<Locale, ExtendedTranslation> = {
       list: [
         { title: '海外组展', desc: '组织中国优质企业参加俄罗斯顶级行业展会，拓展海外订单。', icon: '🌍' },
         { title: '展台设计搭建', desc: '莫斯科本地工程团队，提供从设计到落地的一站式搭建服务。', icon: '🏗️' },
+        { title: '莫斯科MOQ订货中心', desc: '莫斯科核心商圈现货展示与分销中心，支持小额起订与快速补货。', icon: '🏢' },
         { title: '商务咨询', desc: '中俄双语顾问团队，解决法律、物流、清关及市场准入难题。', icon: '💼' }
       ]
     },
@@ -57,6 +58,7 @@ export const translations: Record<Locale, ExtendedTranslation> = {
       list: [
         { title: 'Exhibition Organizing', desc: 'Connecting quality suppliers with top-tier Russian industry events.', icon: '🌍' },
         { title: 'Booth Design', desc: 'Local Moscow engineering team providing turnkey booth solutions.', icon: '🏗️' },
+        { title: 'Moscow MOQ Order Center', desc: 'Spot display and distribution center in central Moscow, supporting small orders and quick restock.', icon: '🏢' },
         { title: 'Business Consulting', desc: 'Bilingual experts solving logistics, customs, and market entry issues.', icon: '💼' }
       ]
     },
@@ -90,6 +92,7 @@ export const translations: Record<Locale, ExtendedTranslation> = {
       list: [
         { title: 'Организация выставок', desc: 'Содействие китайским компаниям в участии в ведущих выставках РФ.', icon: '🌍' },
         { title: 'Дизайн стендов', desc: 'Собственная строительная бригада в Москве, застройка «под ключ».', icon: '🏗️' },
+        { title: 'Центр заказов MOQ в Москве', desc: 'Центр демонстрации и дистрибуции товаров в Москве, поддержка малых заказов и быстрое пополнение.', icon: '🏢' },
         { title: 'Консалтинг', desc: 'Юридическая поддержка, логистика и таможенное оформление.', icon: '💼' }
       ]
     },
