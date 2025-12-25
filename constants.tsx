@@ -1,16 +1,6 @@
 
 import { Exhibition } from './types';
 
-export const EXHIBITIONS: Exhibition[] = [
-  { id: 1, name: '2025 俄罗斯国际石油天然气展览会 (Neftegaz)', city: '莫斯科', date: '2025年4月', status: '火热招展' },
-  { id: 2, name: '2025 俄罗斯国际工业机械博览会', city: '叶卡捷琳堡', date: '2025年7月', status: '接受预定' },
-  { id: 3, name: '2025 俄罗斯国际消费电子及家电展', city: '莫斯科', date: '2025年9月', status: '准备中' },
-  { id: 4, name: '2025 俄罗斯农业机械及技术展', city: '莫斯科', date: '2025年10月', status: '接受预定' }
-];
-
-/**
- * Navigation items used by the main navbar.
- */
 export const NAV_ITEMS = [
   { label: 'Home', path: '/' },
   { label: 'Services', path: '/services' },

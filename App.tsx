@@ -1,14 +1,14 @@
 
 import React, { useState } from 'react';
-import { Locale } from './types';
+import { Locale, Exhibition } from './types';
 import { translations } from './locales';
-import { EXHIBITIONS } from './constants';
 import { SITE_CONFIG } from './siteConfig';
 import AIConsultant from './components/AIConsultant';
 
 const App: React.FC = () => {
   const [locale, setLocale] = useState<Locale>('zh');
   const [toast, setToast] = useState<{ message: string; visible: boolean }>({ message: '', visible: false });
+  const [selectedExhibition, setSelectedExhibition] = useState<Exhibition | null>(null);
   const t = translations[locale];
 
   const scrollTo = (id: string) => {
@@ -184,7 +184,7 @@ const App: React.FC = () => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100">
-                    {EXHIBITIONS.map((ex) => (
+                    {t.exhibitionTable.list?.map((ex) => (
                       <tr key={ex.id} className="hover:bg-blue-50/50 transition-colors">
                         <td className="px-10 py-8 font-black text-slate-900 text-lg">{ex.name}</td>
                         <td className="px-10 py-8 text-slate-600 font-medium">{ex.city}</td>
@@ -195,7 +195,12 @@ const App: React.FC = () => {
                           </span>
                         </td>
                         <td className="px-10 py-8 text-right">
-                          <button onClick={() => scrollTo('contact')} className="text-brand-blue font-black text-sm hover:underline decoration-2 underline-offset-4 tracking-tighter">了解详情</button>
+                          <button 
+                            onClick={() => setSelectedExhibition(ex)} 
+                            className="text-brand-blue font-black text-sm hover:underline decoration-2 underline-offset-4 tracking-tighter"
+                          >
+                            了解详情
+                          </button>
                         </td>
                       </tr>
                     ))}
@@ -276,6 +281,59 @@ const App: React.FC = () => {
       </section>
 
       {SITE_CONFIG.features?.aiConsultant && <AIConsultant />}
+
+      {/* Exhibition Detail Modal */}
+      {selectedExhibition && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 lg:p-8">
+          <div 
+            className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-300"
+            onClick={() => setSelectedExhibition(null)}
+          ></div>
+          <div className="bg-white w-full max-w-4xl max-h-[90vh] rounded-[2.5rem] shadow-2xl relative z-10 overflow-hidden flex flex-col animate-in zoom-in-95 duration-300">
+            <div className="px-10 py-8 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+              <h3 className="text-2xl font-black text-slate-900 leading-tight pr-8">
+                {selectedExhibition.name}
+              </h3>
+              <button 
+                onClick={() => setSelectedExhibition(null)}
+                className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center text-slate-400 hover:text-brand-blue hover:border-brand-blue transition-all group shrink-0"
+              >
+                <span className="text-2xl group-hover:rotate-90 transition-transform duration-300">×</span>
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto px-10 py-10">
+              <div className="prose prose-slate max-w-none">
+                <div className="whitespace-pre-wrap text-slate-600 leading-relaxed text-lg font-light">
+                  {selectedExhibition.details}
+                </div>
+              </div>
+            </div>
+            <div className="px-10 py-8 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-6">
+              <div className="flex items-center space-x-6">
+                <div className="text-sm">
+                  <span className="text-slate-400 uppercase tracking-widest block mb-1">举办城市</span>
+                  <span className="font-bold text-slate-900">{selectedExhibition.city}</span>
+                </div>
+                <div className="w-px h-8 bg-slate-200"></div>
+                <div className="text-sm">
+                  <span className="text-slate-400 uppercase tracking-widest block mb-1">举办时间</span>
+                  <span className="font-bold text-slate-900">{selectedExhibition.date}</span>
+                </div>
+              </div>
+              <button 
+                onClick={() => {
+                  setSelectedExhibition(null);
+                  scrollTo('contact');
+                }}
+                className="bg-brand-blue text-white px-10 py-4 rounded-2xl font-black hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-200 flex items-center space-x-2"
+              >
+                <span>立即咨询参展</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

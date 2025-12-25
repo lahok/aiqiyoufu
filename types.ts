@@ -24,6 +24,7 @@ export interface Translation {
   exhibitionTable: {
     title: string;
     columns: string[];
+    list?: Exhibition[];
   };
   contact: {
     title: string;
@@ -40,6 +41,7 @@ export interface Exhibition {
   city: string;
   date: string;
   status: string;
+  details?: string;
 }
 
 /**
