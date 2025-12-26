@@ -206,7 +206,7 @@ export const translations: Record<Locale, ExtendedTranslation> = {
     nav: { about: 'About', services: 'Services', contact: 'Contact' },
     hero: { 
       title: 'Connecting Sino-Russian Markets', 
-      subtitle: 'Empowering Chinese manufacturers to explore the Russian market through professional exhibitions and consultancy.', 
+      subtitle: 'Empowering Chinese manufacturers to explore the Russian market through professional exhibitions and AUCHIEF consultancy.', 
       cta: 'Get Started' 
     },
     services: {
@@ -238,8 +238,8 @@ export const translations: Record<Locale, ExtendedTranslation> = {
   ru: {
     nav: { about: 'О нас', services: 'Услуги', contact: 'Контакты' },
     hero: { 
-      title: 'Ваш мост в бизнес между Китаем и Россией', 
-      subtitle: 'Профессиональная организация выставок и бизнес-консалтинг для развития вашего бизнеса.', 
+      title: 'Ваш мост в бизнес между Китаем и Россией (OOO аучиф)', 
+      subtitle: 'Профессиональная организация выставок и бизнес-консалтинг AUCHIEF для развития вашего бизнеса.', 
       cta: 'Связаться' 
     },
     services: {

@@ -1,9 +1,9 @@
 
 export const SITE_CONFIG = {
   companyName: {
-    zh: "爱优企服",
-    en: "AIYOU Business Group",
-    ru: "AIYOU Business Group"
+    zh: "上海爱优企服会展有限公司",
+    en: "SHANGHAI AUCHIEF EXPO CO.,LTD",
+    ru: "OOO аучиф"
   },
   email: "15268431899@163.com",
   phone: "4008-499-007",

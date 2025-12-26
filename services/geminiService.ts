@@ -11,7 +11,7 @@ export const generateConsultationResponse = async (userMessage: string, context:
   try {
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
-      contents: `Context: You are the lead consultant for AIYOU Business Group. 
+      contents: `Context: You are the lead consultant for SHANGHAI AUCHIEF EXPO CO.,LTD (AUCHIEF EXPO). 
       ${context}
       User Inquiry: ${userMessage}`,
       config: {

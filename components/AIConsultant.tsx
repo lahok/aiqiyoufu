@@ -9,7 +9,7 @@ const AIConsultant: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: 'model',
-      text: "您好！我是爱优企服的AI商务顾问。有什么可以帮您？Hello! I'm AIYOU's consultant. How can I assist you with the Russian market today?",
+      text: "您好！我是爱优企服的AI商务顾问。有什么可以帮您？Hello! I'm AUCHIEF's consultant. How can I assist you with the Russian market today?",
       timestamp: new Date(),
     }
   ]);
@@ -31,7 +31,7 @@ const AIConsultant: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await generateConsultationResponse(input, "The user is visiting AIYOU's website. AIYOU specializes in helping Chinese companies exhibit in Russia.");
+      const response = await generateConsultationResponse(input, "The user is visiting AUCHIEF EXPO's website. AUCHIEF specializes in helping Chinese companies exhibit in Russia.");
       const modelMsg: ChatMessage = { role: 'model', text: response, timestamp: new Date() };
       setMessages(prev => [...prev, modelMsg]);
     } catch (err) {

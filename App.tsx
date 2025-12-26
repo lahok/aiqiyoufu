@@ -60,7 +60,7 @@ const App: React.FC = () => {
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">A</div>
               <span className="text-2xl font-black text-brand-blue tracking-tighter">
-                AIYOU <span className="text-slate-400 font-light hidden sm:inline">| {SITE_CONFIG.companyName[locale]}</span>
+                AUCHIEF <span className="text-slate-400 font-light hidden sm:inline">| {SITE_CONFIG.companyName[locale]}</span>
               </span>
             </div>
             
@@ -224,10 +224,10 @@ const App: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-black mb-10 leading-tight">{SITE_CONFIG.companyName[locale]}</h2>
               <p className="text-slate-400 text-xl leading-relaxed mb-10 font-light">
                 {locale === 'zh' 
-                  ? '爱优企服（AIYOU Business Group）是一家专注中俄双边经贸服务的创新型咨询机构。我们协助中国优质制造业通过“展会经济”与“商务考察”快速打入俄罗斯及独联体市场，提供包括组展、搭建、法律、物流及市场准入在内的一站式合规支持。'
+                  ? '上海爱优企服会展有限公司（AUCHIEF EXPO）是一家专注中俄双边经贸服务的创新型咨询机构。我们协助中国优质制造业通过“展会经济”与“商务考察”快速打入俄罗斯及独联体市场，提供包括组展、搭建、法律、物流及市场准入在内的一站式合规支持。'
                   : locale === 'en'
-                  ? 'AIYOU Business Group is an innovative consultancy specializing in China-Russia bilateral trade. We help quality manufacturers enter Russian markets via exhibition services and comprehensive business support.'
-                  : 'AIYOU Business Group — это инновационное консалтинговое агентство, специализирующееся на услугах в сфере торговли между Китаем и Россией.'
+                  ? 'SHANGHAI AUCHIEF EXPO CO.,LTD is an innovative consultancy specializing in China-Russia bilateral trade. We help quality manufacturers enter Russian markets via exhibition services and comprehensive business support.'
+                  : 'OOO аучиф — это инновационное консалтинговое агентство, специализирующееся на услугах в сфере торговли между Китаем и Россией.'
                 }
               </p>
               
