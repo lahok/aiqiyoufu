@@ -95,11 +95,11 @@ const App: React.FC = () => {
       <header className="hero-gradient pt-48 pb-32 flex items-center text-white relative">
         <div className="absolute inset-0 bg-black/20 z-0"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1.1] animate-in slide-in-from-bottom-8 duration-1000">
+          <div className="max-w-5xl">
+            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[1.1] animate-in slide-in-from-bottom-8 duration-1000 md:whitespace-nowrap">
               {t.hero.title}
             </h1>
-            <p className="text-xl md:text-2xl text-blue-50/90 mb-12 font-light leading-relaxed max-w-2xl">
+            <p className="text-xl md:text-2xl text-blue-50/90 mb-12 font-light leading-relaxed md:whitespace-nowrap">
               {t.hero.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
