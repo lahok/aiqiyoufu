@@ -57,11 +57,13 @@ const App: React.FC = () => {
       <nav className="glass-header fixed w-full top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">A</div>
-              <span className="text-2xl font-black text-brand-blue tracking-tighter">
-                AUCHIEF <span className="text-slate-400 font-light hidden sm:inline">| {SITE_CONFIG.companyName[locale]}</span>
-              </span>
+            <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <img src="/logo.png" alt="AUCHIEF EXPO" className="h-11 w-auto object-contain" />
+              <div className="hidden sm:block ml-4">
+                <span className="text-xl font-bold text-slate-800 tracking-tight">
+                  {SITE_CONFIG.companyName[locale]}
+                </span>
+              </div>
             </div>
             
             <div className="hidden md:flex items-center space-x-10">
