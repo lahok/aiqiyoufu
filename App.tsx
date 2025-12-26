@@ -151,7 +151,7 @@ const App: React.FC = () => {
             {t.industries.list.map((ind, i) => (
               <div key={i} className="relative group overflow-hidden rounded-[2rem] h-64 bg-slate-900">
                 <img 
-                  src={`https://images.unsplash.com/photo-${i === 0 ? '1581091226825-a6a2a5aee158' : i === 1 ? '1550751827-4bd374c3f58b' : i === 2 ? '1592939091404-bc941785f782' : '1554469384-e58fac16e23a'}?q=80&w=800&auto=format&fit=crop`} 
+                  src={i === 0 ? '/industries/machinery.jpg' : i === 1 ? '/industries/electronics.jpg' : i === 2 ? '/industries/agriculture.jpg' : '/industries/energy.jpg'} 
                   className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700"
                   alt={ind.title}
                 />
