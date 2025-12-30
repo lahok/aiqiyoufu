@@ -47,3 +47,19 @@ body {
     }
 }
 
+.animate-scroll-reverse {
+    display: flex;
+    width: max-content;
+    animation: scroll-reverse 40s linear infinite;
+}
+
+@keyframes scroll-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+

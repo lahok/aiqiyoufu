@@ -3,6 +3,16 @@ import { Translation, Locale } from './types';
 
 export interface ExtendedTranslation extends Translation {
   aboutDescription: string;
+  advantages: {
+    title: string;
+    list: { title: string; desc: string; icon: string }[];
+  };
+  credentials: {
+    title: string;
+  };
+  exhibitionsSnap: {
+    title: string;
+  };
   industries: {
     title: string;
     list: { title: string; icon: string }[];
@@ -25,14 +35,14 @@ export const translations: Record<Locale, ExtendedTranslation> = {
     credentials: {
       title: '各类资质'
     },
+    exhibitionsSnap: {
+      title: '往届风采'
+    },
     hero: { 
-
       title: '连接中俄市场，助力中国制造', 
       subtitle: '深耕俄语市场，为您提供专业的组展、搭建及一站式商务落地咨询服务，助力中国企业走出去。', 
       cta: '立即咨询' 
     },
-
-
     services: {
       title: '核心业务',
       list: [
@@ -76,7 +86,7 @@ export const translations: Record<Locale, ExtendedTranslation> = {
 展会定位聚焦俄罗斯最大的家庭用品生产制造商与批发商，为全球参展企业搭建优质国际贸易平台，集中展示全球家庭用品行业的发展水平与潮流趋势。
 
 **（二）规模与影响力**
-* **往届成果**：2025 年秋季展会（9 月 9 日 - 11 日）展出面积达 4 万平米，吸引 22 个国家和地区的 580 家品牌企业参展，涵盖多个国家，专业买家超 30000 人次；中国展区面积 20000 平米，逾百家中国企业参展，市场反应热烈，续展率高达 60%。
+* **往届成果**：2025 年秋季展会（9 月 9 日 - 11 日）展出面积达 4 万平米，吸引 22 个国家 and 地区的 580 家品牌企业参展，涵盖多个国家，专业买家超 30000 人次；中国展区面积 20000 平米，逾百家中国企业参展，市场反应热烈，续展率高达 60%。
 * **本届预计规模**：2026 年春季展会将启用十大展馆，预计展出面积 10 万平方米，吸引 65000 名专业买家；俄罗斯及周边国家大型展商将以特装形式亮相。
 * **市场背景**：俄罗斯已撤出大部分欧美商品，正持续加强与中国的合作，中俄市场具备紧密不可替代的战略性地位。
 
@@ -184,9 +194,9 @@ export const translations: Record<Locale, ExtendedTranslation> = {
 **（一）基本概况**
 * **主办单位**：ITE 展览集团
 * **举办周期**：一年一届
-* **展会定位**：专为中国日用消费品、家居装饰及五金产品等打造的 B2B 国际性展览会，核心宗旨是为各类消费品制造商提供开拓新市场、扩大销售规模的契机，是希望拓展俄罗斯家居消费品业务的企业的首选展会。
-* **展会特色**：特设 “买家卖家匹配中心”，支持买家与参展商一对一开展采购会谈，商业潜力突出，为参展商创造了前所未有的业务发展与合作建立机会，吸引众多零售界及电商平台目标买家亲临现场。
-* **关联展会优势**：是 ITE 集团主办的 “俄罗斯莫斯科国际建材展（MosBuild）” 的姐妹展。MosBuild 已成功举办 30 届，2025 年展会横跨 11 个展厅，总面积达 10 万平方米，汇聚 51 个国家的 1370 多家展商，吸引全球 51 个国家及俄罗斯 86 个地区的 80748 名专业人士参与，国际观众同比增加 47%，稳居俄罗斯、东欧及独联体地区规模和影响力名列前茅的国际性建材行业展会，为家居类消费品企业提供了优质的国际贸易平台。
+* **展会定位**：专为中国日用消费品、家居装饰及五金产品等打造的 B2B 国际性展览会，核心宗旨是为各类消费品制造商提供开拓新市场、扩大销售规模的契机，是希望拓展俄罗斯家居消费品业务的企业的首选展会.
+* **展会特色**：特设 “买家卖家匹配中心”，支持买家与参展商一对一开展采购会谈，商业潜力突出，为参展商创造了前所未有的业务发展与合作建立机会，吸引众多零售界及电商平台目标买家亲临现场.
+* **关联展会优势**：是 ITE 集团主办的 “俄罗斯莫斯科国际建材展（MosBuild）” 的姐妹展。MosBuild 已成功举办 30 届，2025 年展会横跨 11 个展厅，总面积达 10 万平方米，汇聚 51 个国家的 1370 多家展商，吸引全球 51 个国家及俄罗斯 86 个地区的 80748 名专业人士参与，国际观众同比增加 47%，稳居俄罗斯、东欧及独联体地区规模和影响力名列前茅的国际性建材行业展会，为家居类消费品企业提供了优质的国际贸易平台.
 
 **（二）同期展会**
 * 与俄罗斯最大的建筑和室内装饰展（MosBuild）同期举办，可共享该展会 10000 + 跨展观众资源，大幅提升参展企业品牌知名度与曝光度。
@@ -203,12 +213,12 @@ export const translations: Record<Locale, ExtendedTranslation> = {
 * **体育健身**：体育用品、户外运动用品、雪上运动及设备、健身器材及配件、运动服饰等。
 
 **（四）市场前景与贸易利好**
-* **中俄贸易基础深厚**：中国连续 14 年稳居俄罗斯第一大贸易伙伴国，2024 年俄中贸易额达约 2448 亿美元，此前已连续多年突破关键阈值，预计 2030 年有望迈向 3000 亿美元；中俄贸易本币结算比例已增至 92%，俄罗斯大部分银行接入人民币跨境支付系统 CIPS，贸易结算更便利。
-* **俄罗斯市场环境优越**：俄罗斯联邦经济规模位居欧洲第一，近两年 GDP 年均增速超 4%，失业率降至 1992 年以来最低水平（2.3%），计划 2030 年跻身全球营商环境最佳前二十位；2025 年圣彼得堡国际经济论坛吸引 140 多个国家和地区代表参与，国际合作空间广阔。
-* **中国企业发展机遇**：中俄全面战略协作伙伴关系处于历史最好水平，俄罗斯实施 “向东看” 战略后，消费者对性价比高的中国产品认知度与接受度持续提升，中高端市场利润空间可观；西方品牌撤出后留下巨大市场空白，加之俄罗斯消费者重视产品质量，为中国企业填补市场空白、深耕当地市场创造了黄金窗口期。
+* **中俄贸易基础深厚**：中国连续 14 年稳居俄罗斯第一大贸易伙伴国，2024 年俄中贸易额达约 2448 亿美元，此前已连续多年突破关键阈值，预计 2030 年有望迈向 3000 亿美元；中俄贸易本币结算比例已增至 92%，俄罗斯大部分银行接入人民币跨境支付系统 CIPS，贸易结算更便利.
+* **俄罗斯市场环境优越**：俄罗斯联邦经济规模位居欧洲第一，近两年 GDP 年均增速超 4%，失业率降至 1992 年以来最低水平（2.3%），计划 2030 年跻身全球营商环境最佳前二十位；2025 年圣彼得堡国际经济论坛吸引 140 多个国家和地区代表参与，国际合作空间广阔.
+* **中国企业发展机遇**：中俄全面战略协作伙伴关系处于历史最好水平，俄罗斯实施 “向东看” 战略后，消费者对性价比高的中国产品认知度与接受度持续提升，中高端市场利润空间可观；西方品牌撤出后留下巨大市场空白，加之俄罗斯消费者重视产品质量，为中国企业填补市场空白、深耕当地市场创造了黄金窗口期.
 
 **（五）参展支持**
-组展方提供全链条参展配套服务，包括 3 天展期高密对接买家、展后 365 天 MOQ 订货中心常年展厅、全俄多场展会产品曝光、本土分销布局、品牌化运营指导等，助力参展企业高效开拓俄罗斯及周边国家 market。`
+组展方提供全链条参展配套服务，包括 3 天展期高密对接买家、展后 365 天 MOQ 订货中心常年展厅、全俄多场展会产品曝光、本土分销布局、品牌化运营指导等，助力参展企业高效开拓俄罗斯及周边国家 market.`
         }
       ]
     },
@@ -222,11 +232,6 @@ export const translations: Record<Locale, ExtendedTranslation> = {
   en: {
     nav: { about: 'About', services: 'Services', contact: 'Contact' },
     aboutDescription: 'AUCHIEF EXPO (Shanghai) Co., Ltd. is deeply rooted in the Russian-speaking market, specializing in China-Russia bilateral trade. Over years of dedicated operation, we have empowered more than a thousand Chinese exporters to successfully enter the Russian market. In 2024, AUCHIEF forged strategic partnerships with the Longcheng Digital E-commerce Technology Park and the Tianya Auto Parts City in Russia, further strengthening our commitment to serving China\'s export trade. We provide comprehensive "Going Global" solutions through localized physical presence—including year-round showrooms and MOQ order centers—integrated with offline buyer engagement and a dual-channel online/offline distribution model. Our mission is to provide "Made in China" with bespoke, full-service marketing strategies to master the Russian-speaking market.',
-    hero: { 
-      title: 'Connecting Sino-Russian Markets', 
-      subtitle: 'Empowering Chinese manufacturers to expand into the Russian market through premium exhibition services and expert strategic consultancy.', 
-      cta: 'Get Started' 
-    },
     advantages: {
       title: 'Our Advantages',
       list: [
@@ -239,8 +244,15 @@ export const translations: Record<Locale, ExtendedTranslation> = {
     credentials: {
       title: 'Our Credentials'
     },
+    exhibitionsSnap: {
+      title: 'Past Exhibitions'
+    },
+    hero: { 
+      title: 'Connecting Sino-Russian Markets', 
+      subtitle: 'Empowering Chinese manufacturers to expand into the Russian market through premium exhibition services and expert strategic consultancy.', 
+      cta: 'Get Started' 
+    },
     services: {
-
       title: 'Core Services',
       list: [
         { title: 'Exhibition Organizing', desc: 'Connecting quality suppliers with top-tier Russian industry events.', icon: '🌍' },
@@ -286,8 +298,10 @@ export const translations: Record<Locale, ExtendedTranslation> = {
     credentials: {
       title: 'Наши сертификаты'
     },
+    exhibitionsSnap: {
+      title: 'Прошедшие выставки'
+    },
     services: {
-
       title: 'Наши Услуги',
       list: [
         { title: 'Организация выставок', desc: 'Содействие китайским компаниям в участии в ведущих выставках РФ.', icon: '🌍' },
