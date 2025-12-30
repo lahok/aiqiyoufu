@@ -11,7 +11,9 @@ const App: React.FC = () => {
   const [locale, setLocale] = useState<Locale>('zh');
   const [toast, setToast] = useState<{ message: string; visible: boolean }>({ message: '', visible: false });
   const [selectedExhibition, setSelectedExhibition] = useState<Exhibition | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const t = translations[locale];
+
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -142,7 +144,60 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* Why Choose Us Section */}
+      <section className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-24">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">{t.advantages.title}</h2>
+            <div className="h-1.5 w-24 bg-brand-blue mx-auto rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {t.advantages.list.map((item, i) => (
+              <div key={i} className="flex items-start p-8 rounded-[2rem] bg-slate-50 hover:bg-blue-50 transition-all border border-slate-100 group">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl shadow-sm mr-8 shrink-0 group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="text-2xl font-black mb-4 text-slate-900">{item.title}</h3>
+                  <p className="text-slate-500 leading-relaxed text-lg">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Credentials Section */}
+      <section className="py-32 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-24">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">{t.credentials.title}</h2>
+            <div className="h-1.5 w-24 bg-brand-blue mx-auto rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'].map((char) => (
+              <div 
+                key={char} 
+                onClick={() => setSelectedImage(`/credential/${char}.png`)}
+                className="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 hover:shadow-xl transition-all cursor-zoom-in group"
+              >
+                <div className="aspect-[3/4] overflow-hidden rounded-2xl bg-slate-100">
+                  <img 
+                    src={`/credential/${char}.png`} 
+                    alt={`Credential ${char}`} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       {/* Industry Focus Section */}
+
       <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-24">
@@ -342,7 +397,31 @@ const App: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Image Preview Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-slate-900/90 backdrop-blur-sm animate-in fade-in duration-300"
+            onClick={() => setSelectedImage(null)}
+          ></div>
+          <div className="relative z-10 max-w-4xl max-h-[90vh] animate-in zoom-in-95 duration-300">
+            <button 
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-16 right-0 text-white hover:text-brand-blue transition-colors p-4"
+            >
+              <span className="text-4xl">×</span>
+            </button>
+            <img 
+              src={selectedImage} 
+              alt="Preview" 
+              className="w-full h-full object-contain rounded-xl shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </div>
+
   );
 };
 

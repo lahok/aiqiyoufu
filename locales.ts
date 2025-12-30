@@ -13,7 +13,20 @@ export const translations: Record<Locale, ExtendedTranslation> = {
   zh: {
     nav: { about: '关于我们', services: '业务领域', exhibitions: '展会计划', contact: '联系我们' },
     aboutDescription: '上海爱优企服会展有限公司，立足于俄语市场，聚焦中俄双边贸易，通过多年的运营，公司已累计服务“中国出口俄罗斯企业”上千家。2024年爱优企服成功与俄罗斯龙城电商科技园，俄罗斯天雅汽配城牵手合作。为更好的服务于中国出口俄罗斯贸易不懈努力。爱优企服聚焦中国企业“走出去”解决方案，通过在俄罗斯落地的实体场景（常年展厅/MOQ订货中心）、线下买家运营方案（买卖双方链接）、线上线下双向分销的模式，为“中国制造”量身打造拓展俄语市场的外贸营销的综合服务。',
+    advantages: {
+      title: '我们的优势',
+      list: [
+        { title: '资深团队', desc: '团队成员有着多元化背景，丰富商务经验，拥有多门外语能力与海外工作经历', icon: '👥' },
+        { title: '优质资源', desc: '深耕国际市场多年，着重布局一带一路国家，拥有丰富商务资源与数据库信息', icon: '💎' },
+        { title: '专业推广', desc: '深耕俄语区，辐射全球贸易市场，有强大的海外服务团队', icon: '📢' },
+        { title: '多元服务', desc: '线上线下融合，国内国外并进，提供各类商务咨询等高增值服务', icon: '🛠️' }
+      ]
+    },
+    credentials: {
+      title: '各类资质'
+    },
     hero: { 
+
       title: '连接中俄市场，助力中国制造', 
       subtitle: '深耕俄语市场，为您提供专业的组展、搭建及一站式商务落地咨询服务，助力中国企业走出去。', 
       cta: '立即咨询' 
@@ -214,8 +227,20 @@ export const translations: Record<Locale, ExtendedTranslation> = {
       subtitle: 'Empowering Chinese manufacturers to expand into the Russian market through premium exhibition services and expert strategic consultancy.', 
       cta: 'Get Started' 
     },
-
+    advantages: {
+      title: 'Our Advantages',
+      list: [
+        { title: 'Senior Team', desc: 'Members with diverse backgrounds, rich business experience, multilingual abilities, and overseas work experience.', icon: '👥' },
+        { title: 'Quality Resources', desc: 'Years of engagement in international markets, focus on Belt and Road countries, with rich business resources and databases.', icon: '💎' },
+        { title: 'Professional Promotion', desc: 'Deep focus on the Russian-speaking region, global market reach, and a strong overseas service team.', icon: '📢' },
+        { title: 'Diverse Services', desc: 'Online-offline integration, domestic-overseas presence, providing high-value business consulting services.', icon: '🛠️' }
+      ]
+    },
+    credentials: {
+      title: 'Our Credentials'
+    },
     services: {
+
       title: 'Core Services',
       list: [
         { title: 'Exhibition Organizing', desc: 'Connecting quality suppliers with top-tier Russian industry events.', icon: '🌍' },
@@ -249,8 +274,20 @@ export const translations: Record<Locale, ExtendedTranslation> = {
       subtitle: 'Профессиональная организация выставок и комплексный бизнес-консалтинг для эффективного развития вашего бизнеса на рынках России и СНГ.', 
       cta: 'Связаться' 
     },
-
+    advantages: {
+      title: 'Наши преимущества',
+      list: [
+        { title: 'Опытная команда', desc: 'Члены команды с многообразным опытом, богатым опытом в бизнесе, знанием нескольких иностранных языков и опытом работы за рубежом.', icon: '👥' },
+        { title: 'Качественные ресурсы', desc: 'Многолетняя работа на международных рынках, фокус на странах «Один пояс, один путь», богатые деловые ресурсы и базы данных.', icon: '💎' },
+        { title: 'Профессиональное продвижение', desc: 'Глубокая экспертиза в русскоязычном регионе, охват мирового торгового рынка и сильная зарубежная сервисная команда.', icon: '📢' },
+        { title: 'Разнообразные услуги', desc: 'Интеграция онлайн и офлайн, работа внутри страны и за рубежом, предоставление консультационных услуг с высокой добавленной стоимостью.', icon: '🛠️' }
+      ]
+    },
+    credentials: {
+      title: 'Наши сертификаты'
+    },
     services: {
+
       title: 'Наши Услуги',
       list: [
         { title: 'Организация выставок', desc: 'Содействие китайским компаниям в участии в ведущих выставках РФ.', icon: '🌍' },
