@@ -220,10 +220,11 @@ const App: React.FC = () => {
       <section id="contact" className="py-32 bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-blue rounded-full blur-[150px] opacity-20 -translate-y-1/2 translate-x-1/2"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-24">
             <div id="about">
               <span className="text-blue-500 font-black uppercase tracking-[0.2em] text-sm mb-6 block">{t.nav.about}</span>
-              <h2 className="text-4xl md:text-5xl font-black mb-10 leading-tight">{SITE_CONFIG.companyName[locale]}</h2>
+              <h2 className="text-3xl md:text-4xl font-black mb-10 leading-tight lg:whitespace-nowrap">{SITE_CONFIG.companyName[locale]}</h2>
+
               <p className="text-slate-400 text-xl leading-relaxed mb-10 font-light">
                 {t.aboutDescription}
               </p>
