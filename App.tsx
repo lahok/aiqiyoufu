@@ -122,7 +122,118 @@ const App: React.FC = () => {
         </div>
       </header>
 
+      {/* About Section - Comprehensive Brand Identity */}
+      <section id="about" className="py-32 bg-white relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-20 items-center mb-32">
+            <div>
+              <span className="text-brand-blue font-black uppercase tracking-[0.2em] text-sm mb-6 block">{t.nav.about}</span>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight">
+                {SITE_CONFIG.companyName[locale]}
+              </h2>
+              <p className="text-slate-600 text-xl leading-relaxed mb-8 font-light italic border-l-4 border-brand-blue pl-6">
+                {t.aboutDescription}
+              </p>
+              <div className="flex flex-wrap gap-4 mt-12">
+                {SITE_CONFIG.socials.map((social) => (
+                  <button 
+                    key={social.platform}
+                    onClick={() => handleSocialAction(social)}
+                    className="flex items-center space-x-3 bg-slate-50 border border-slate-100 px-6 py-3 rounded-2xl hover:bg-white hover:shadow-lg transition-all group"
+                  >
+                    <svg className="w-5 h-5 fill-slate-400 group-hover:fill-brand-blue transition-colors" viewBox="0 0 24 24">
+                      <path d={social.icon} />
+                    </svg>
+                    <span className="font-bold text-slate-600 group-hover:text-brand-blue">{social.platform}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-brand-blue/5 rounded-[3rem] blur-2xl group-hover:bg-brand-blue/10 transition-colors"></div>
+              <img 
+                src="/about-office.jpg" 
+                alt="About Us" 
+                className="relative rounded-[2.5rem] shadow-2xl w-full h-[500px] object-cover"
+                onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000'; }}
+              />
+            </div>
+          </div>
+
+          {/* Advantages Grid */}
+          <div className="mb-32">
+            <div className="text-center mb-16">
+              <h3 className="text-3xl font-black text-slate-900 mb-4">{t.advantages.title}</h3>
+              <div className="h-1 w-16 bg-brand-blue mx-auto rounded-full"></div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {t.advantages.list.map((item, i) => (
+                <div key={i} className="p-10 rounded-[2rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all group">
+                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl shadow-sm mb-6 group-hover:scale-110 transition-transform">
+                    {item.icon}
+                  </div>
+                  <h4 className="text-xl font-black mb-4 text-slate-900">{item.title}</h4>
+                  <p className="text-slate-500 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Credentials Carousel */}
+          <div>
+            <div className="text-center mb-16">
+              <h3 className="text-3xl font-black text-slate-900 mb-4">{t.credentials.title}</h3>
+              <div className="h-1 w-16 bg-brand-blue mx-auto rounded-full"></div>
+            </div>
+            <div className="relative -mx-4 sm:-mx-6 lg:-mx-8">
+              <div className="animate-scroll flex space-x-6 px-8 hover:[animation-play-state:paused] cursor-pointer">
+                {[...['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], ...['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']].map((char, idx) => (
+                  <div 
+                    key={`${char}-${idx}`}
+                    onClick={() => setSelectedImage(`/credential/${char}.png`)}
+                    className="flex-shrink-0 w-48 md:w-60 bg-white p-3 rounded-2xl shadow-sm border border-slate-200 hover:shadow-xl transition-all cursor-zoom-in group/item"
+                  >
+                    <div className="aspect-[3/4] overflow-hidden rounded-xl bg-slate-100">
+                      <img 
+                        src={`/credential/${char}.png`} 
+                        alt={`Credential ${char}`} 
+                        className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
+      <section id="services" className="py-32 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-24">
+            <span className="text-brand-blue font-black uppercase tracking-[0.2em] text-sm mb-4 block">{t.nav.services}</span>
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">{t.services.title}</h2>
+            <div className="h-1.5 w-24 bg-brand-blue mx-auto rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            {t.services.list.map((item, i) => (
+              <div key={i} className="bg-white p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl transition-all group">
+                <div className="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center text-4xl mb-8 group-hover:bg-brand-blue group-hover:text-white transition-all duration-500">
+                  {item.icon}
+                </div>
+                <h3 className="text-2xl font-black mb-6 text-slate-900">{item.title}</h3>
+                <p className="text-slate-500 leading-relaxed text-lg">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       <section id="services" className="py-32 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-24">
@@ -167,33 +278,42 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Credentials Section */}
-      <section className="py-32 bg-slate-50">
+      {/* Credentials Section - Auto-scrolling Carousel */}
+      <section className="py-24 bg-slate-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">{t.credentials.title}</h2>
-            <div className="h-1.5 w-24 bg-brand-blue mx-auto rounded-full"></div>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">{t.credentials.title}</h2>
+            <div className="h-1 w-16 bg-brand-blue mx-auto rounded-full"></div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'].map((char) => (
+        </div>
+        
+        <div className="relative">
+          {/* Scrolling Row */}
+          <div className="animate-scroll flex space-x-6 px-6 hover:[animation-play-state:paused] cursor-pointer">
+            {[...['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], ...['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']].map((char, idx) => (
               <div 
-                key={char} 
+                key={`${char}-${idx}`}
                 onClick={() => setSelectedImage(`/credential/${char}.png`)}
-                className="bg-white p-4 rounded-3xl shadow-sm border border-slate-200 hover:shadow-xl transition-all cursor-zoom-in group"
+                className="flex-shrink-0 w-48 md:w-64 bg-white p-3 rounded-2xl shadow-sm border border-slate-200 hover:shadow-xl hover:border-brand-blue/30 transition-all cursor-zoom-in group/item"
               >
-                <div className="aspect-[3/4] overflow-hidden rounded-2xl bg-slate-100">
+                <div className="aspect-[3/4] overflow-hidden rounded-xl bg-slate-100">
                   <img 
                     src={`/credential/${char}.png`} 
                     alt={`Credential ${char}`} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Masking Gradients */}
+          <div className="absolute inset-y-0 left-0 w-24 md:w-40 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-24 md:w-40 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
         </div>
       </section>
+
 
 
       {/* Industry Focus Section */}
@@ -271,77 +391,58 @@ const App: React.FC = () => {
         </section>
       )}
 
-      {/* About & Contact Section */}
+      {/* Contact Section - Streamlined & Action-Oriented */}
       <section id="contact" className="py-32 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-blue rounded-full blur-[150px] opacity-20 -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-24">
-            <div id="about">
-              <span className="text-blue-500 font-black uppercase tracking-[0.2em] text-sm mb-6 block">{t.nav.about}</span>
-              <h2 className="text-3xl md:text-4xl font-black mb-10 leading-tight lg:whitespace-nowrap">{SITE_CONFIG.companyName[locale]}</h2>
+          <div className="text-center mb-20">
+            <span className="text-brand-blue font-black uppercase tracking-[0.2em] text-sm mb-4 block">{t.nav.contact}</span>
+            <h2 className="text-4xl md:text-5xl font-black mb-6">{t.contact.title}</h2>
+            <div className="h-1.5 w-24 bg-brand-blue mx-auto rounded-full"></div>
+          </div>
 
-              <p className="text-slate-400 text-xl leading-relaxed mb-10 font-light">
-                {t.aboutDescription}
-              </p>
-
-              
-              <div className="flex flex-wrap gap-6">
-                {SITE_CONFIG.socials.map((social) => (
-                  <button 
-                    key={social.platform}
-                    onClick={() => handleSocialAction(social)}
-                    className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center transition-all hover:-translate-y-1 group relative"
-                    title={social.platform}
-                    style={{ '--hover-color': social.color } as React.CSSProperties}
-                  >
-                    <svg 
-                      className="w-6 h-6 fill-white group-hover:fill-[var(--hover-color)] transition-colors" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path d={social.icon} />
-                    </svg>
-                    <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-white text-slate-900 px-3 py-1 rounded-md text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
-                      {social.type === 'copy' ? (locale === 'zh' ? '点击复制' : 'Click to Copy') : social.platform}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-white/5 border border-white/10 p-12 rounded-[2.5rem]">
-              <h3 className="text-2xl font-black mb-10">{t.contact.title}</h3>
-              <div className="space-y-10">
-                {SITE_CONFIG.offices.map((office) => (
-                  <div key={office.id} className="flex items-start">
-                    <span className="text-3xl mr-6">🏢</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Office Info Cards */}
+            <div className="space-y-6">
+              {SITE_CONFIG.offices.map((office) => (
+                <div key={office.id} className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors">
+                  <div className="flex items-start">
+                    <span className="text-3xl mr-6 bg-brand-blue/20 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">🏢</span>
                     <div>
-                      <h4 className="font-bold text-blue-500 mb-2">{office.city[locale]} {t.contact.address}</h4>
+                      <h4 className="text-xl font-bold text-brand-blue mb-2">{office.city[locale]} {t.contact.address}</h4>
                       <p className="text-slate-400 font-light leading-relaxed">{office.address[locale]}</p>
                     </div>
                   </div>
-                ))}
-                <div className="flex items-start">
-                  <span className="text-3xl mr-6">📞</span>
-                  <div>
-                    <h4 className="font-bold text-blue-500 mb-2">{t.contact.phone}</h4>
-                    <p className="text-slate-400 font-light text-xl tracking-tight">{SITE_CONFIG.phone}</p>
-                  </div>
                 </div>
-                <div className="flex items-start">
-                  <span className="text-3xl mr-6">✉️</span>
-                  <div>
-                    <h4 className="font-bold text-blue-500 mb-2">{t.contact.email}</h4>
-                    <p className="text-slate-400 font-light text-xl tracking-tight">{SITE_CONFIG.email}</p>
-                  </div>
-                </div>
+              ))}
+            </div>
+
+            {/* Contact Method Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col items-center text-center group hover:border-brand-blue transition-colors">
+                <span className="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all">📞</span>
+                <h4 className="font-bold text-brand-blue mb-2">{t.contact.phone}</h4>
+                <p className="text-slate-200 text-lg font-medium tracking-tight">{SITE_CONFIG.phone}</p>
+              </div>
+              <div className="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col items-center text-center group hover:border-brand-blue transition-colors">
+                <span className="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all">✉️</span>
+                <h4 className="font-bold text-brand-blue mb-2">{t.contact.email}</h4>
+                <p className="text-slate-200 text-lg font-medium tracking-tight">{SITE_CONFIG.email}</p>
+              </div>
+              <div className="bg-brand-blue p-8 rounded-3xl flex flex-col items-center text-center sm:col-span-2 group hover:bg-blue-600 transition-colors cursor-pointer" onClick={() => scrollTo('contact')}>
+                <span className="text-4xl mb-4">✨</span>
+                <h4 className="font-black text-xl mb-1">即刻开启全球贸易</h4>
+                <p className="text-blue-100 font-light">我们的专家团队将在 24 小时内联系您</p>
               </div>
             </div>
           </div>
+
           <div className="mt-32 pt-10 border-t border-white/5 text-center text-slate-500 text-sm font-light">
             © 2025 {SITE_CONFIG.companyName[locale]}. All Rights Reserved. Empowering Global Trade.
           </div>
         </div>
       </section>
+
 
       {SITE_CONFIG.features?.aiConsultant && <AIConsultant />}
 
