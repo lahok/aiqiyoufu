@@ -341,91 +341,69 @@ const App: React.FC = () => {
         </section>
       )}
 
-      {/* Contact Section - Clean & Direct */}
-      <section id="contact" className="py-32 bg-slate-900 text-white relative overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-blue/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-blue/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-24">
-            <span className="text-brand-blue font-black uppercase tracking-[0.2em] text-sm mb-4 block">{t.nav.contact}</span>
-            <h2 className="text-4xl md:text-5xl font-black mb-6">{t.contact.title}</h2>
-            <div className="h-1.5 w-24 bg-brand-blue mx-auto rounded-full"></div>
-            <p className="mt-8 text-slate-400 text-xl font-light max-w-2xl mx-auto">
-              {locale === 'zh' ? '如果您有任何关于中俄贸易的需求，欢迎通过以下方式联系我们，我们的专家团队将竭诚为您服务。' : 
-               locale === 'en' ? 'If you have any needs regarding China-Russia trade, please contact us through the following methods.' :
-               'Если у вас есть какие-либо потребности в отношении китайско-российской торговли, пожалуйста, свяжитесь с нами.'}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Quick Contact Cards */}
-            <div className="lg:col-span-1 space-y-6">
-              <div className="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] backdrop-blur-md hover:bg-white/10 transition-all group">
-                <div className="w-16 h-16 bg-brand-blue/20 text-brand-blue rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">
-                  📞
+      {/* Contact Section - Simplified & Professional */}
+      <section id="contact" className="py-24 bg-slate-900 text-white relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Left: Brand & Direct Contact */}
+            <div>
+              <h2 className="text-3xl md:text-4xl font-black mb-8">
+                {t.contact.title}
+              </h2>
+              
+              <div className="space-y-8">
+                <div>
+                  <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">{t.contact.phone}</p>
+                  <a href={`tel:${SITE_CONFIG.phone}`} className="text-2xl font-black hover:text-brand-blue transition-colors">
+                    {SITE_CONFIG.phone}
+                  </a>
                 </div>
-                <h4 className="text-brand-blue font-black uppercase tracking-widest text-sm mb-2">{t.contact.phone}</h4>
-                <p className="text-2xl font-black text-white tracking-tight">{SITE_CONFIG.phone}</p>
-                <p className="text-slate-500 text-sm mt-2">周一至周五 9:00 - 18:00</p>
+
+                <div>
+                  <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">{t.contact.email}</p>
+                  <a href={`mailto:${SITE_CONFIG.email}`} className="text-2xl font-black hover:text-brand-blue transition-colors underline decoration-brand-blue underline-offset-8">
+                    {SITE_CONFIG.email}
+                  </a>
+                </div>
               </div>
 
-              <div className="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] backdrop-blur-md hover:bg-white/10 transition-all group">
-                <div className="w-16 h-16 bg-brand-blue/20 text-brand-blue rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">
-                  ✉️
-                </div>
-                <h4 className="text-brand-blue font-black uppercase tracking-widest text-sm mb-2">{t.contact.email}</h4>
-                <p className="text-xl font-bold text-white break-all">{SITE_CONFIG.email}</p>
-                <a href={`mailto:${SITE_CONFIG.email}`} className="inline-block mt-4 text-brand-blue font-bold hover:underline">立即发邮件 →</a>
+              {/* Socials - Compact */}
+              <div className="flex gap-4 mt-12">
+                {SITE_CONFIG.socials.map((social) => (
+                  <button 
+                    key={social.platform}
+                    onClick={() => handleSocialAction(social)}
+                    className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-brand-blue hover:border-brand-blue transition-all"
+                    title={social.platform}
+                  >
+                    <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24">
+                      <path d={social.icon} />
+                    </svg>
+                  </button>
+                ))}
               </div>
             </div>
 
-            {/* Offices & Map Placeholder */}
-            <div className="lg:col-span-2 bg-white/5 border border-white/10 p-10 md:p-12 rounded-[3rem] backdrop-blur-md">
-              <h4 className="text-xl font-black text-white mb-10 flex items-center">
-                <span className="w-10 h-1 bg-brand-blue mr-4 rounded-full"></span>
-                {t.contact.address}
-              </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Right: Office Addresses - Clean List */}
+            <div className="bg-white/5 border border-white/10 p-8 md:p-10 rounded-[2.5rem] backdrop-blur-sm">
+              <h4 className="text-sm font-black text-brand-blue uppercase tracking-widest mb-8">{t.contact.address}</h4>
+              <div className="space-y-8">
                 {SITE_CONFIG.offices.map((office) => (
-                  <div key={office.id} className="group">
-                    <div className="flex items-start space-x-5">
-                      <div className="shrink-0 w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-brand-blue transition-colors">
-                        🏢
-                      </div>
-                      <div>
-                        <h5 className="text-lg font-bold text-brand-blue mb-2">{office.city[locale]}</h5>
-                        <p className="text-slate-400 text-sm leading-relaxed font-light">{office.address[locale]}</p>
-                      </div>
+                  <div key={office.id} className="flex space-x-4">
+                    <span className="text-xl mt-1">📍</span>
+                    <div>
+                      <h5 className="font-bold text-white mb-1">{office.city[locale]}</h5>
+                      <p className="text-slate-400 text-sm leading-relaxed font-light">{office.address[locale]}</p>
                     </div>
                   </div>
                 ))}
               </div>
-
-              {/* Social Media Integration */}
-              <div className="mt-16 pt-10 border-t border-white/10">
-                <p className="text-slate-500 font-bold uppercase tracking-[0.2em] text-xs mb-6">社交媒体关注</p>
-                <div className="flex flex-wrap gap-4">
-                  {SITE_CONFIG.socials.map((social) => (
-                    <button 
-                      key={social.platform}
-                      onClick={() => handleSocialAction(social)}
-                      className="flex items-center space-x-3 bg-white/5 border border-white/10 px-6 py-4 rounded-2xl hover:bg-brand-blue hover:border-brand-blue transition-all group"
-                    >
-                      <svg className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
-                        <path d={social.icon} />
-                      </svg>
-                      <span className="font-bold text-slate-300 group-hover:text-white">{social.platform}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
 
-          <div className="mt-32 pt-10 border-t border-white/5 text-center text-slate-600 text-sm font-light">
-            © 2025 {SITE_CONFIG.companyName[locale]}. All Rights Reserved. Empowering Global Trade.
+          <div className="mt-20 pt-10 border-t border-white/5 text-center text-slate-600 text-xs font-light">
+            © 2025 {SITE_CONFIG.companyName[locale]}. All Rights Reserved.
           </div>
         </div>
       </section>
