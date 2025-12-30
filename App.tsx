@@ -341,38 +341,73 @@ const App: React.FC = () => {
         </section>
       )}
 
-      {/* Contact Section - Streamlined & Action-Oriented */}
+      {/* Contact Section - Clean & Direct */}
       <section id="contact" className="py-32 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+        {/* Animated background elements */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-blue/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-blue/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
+          <div className="text-center mb-24">
             <span className="text-brand-blue font-black uppercase tracking-[0.2em] text-sm mb-4 block">{t.nav.contact}</span>
             <h2 className="text-4xl md:text-5xl font-black mb-6">{t.contact.title}</h2>
             <div className="h-1.5 w-24 bg-brand-blue mx-auto rounded-full"></div>
+            <p className="mt-8 text-slate-400 text-xl font-light max-w-2xl mx-auto">
+              {locale === 'zh' ? '如果您有任何关于中俄贸易的需求，欢迎通过以下方式联系我们，我们的专家团队将竭诚为您服务。' : 
+               locale === 'en' ? 'If you have any needs regarding China-Russia trade, please contact us through the following methods.' :
+               'Если у вас есть какие-либо потребности в отношении китайско-российской торговли, пожалуйста, свяжитесь с нами.'}
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Office Info Cards & Socials */}
-            <div className="space-y-6">
-              <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Quick Contact Cards */}
+            <div className="lg:col-span-1 space-y-6">
+              <div className="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] backdrop-blur-md hover:bg-white/10 transition-all group">
+                <div className="w-16 h-16 bg-brand-blue/20 text-brand-blue rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">
+                  📞
+                </div>
+                <h4 className="text-brand-blue font-black uppercase tracking-widest text-sm mb-2">{t.contact.phone}</h4>
+                <p className="text-2xl font-black text-white tracking-tight">{SITE_CONFIG.phone}</p>
+                <p className="text-slate-500 text-sm mt-2">周一至周五 9:00 - 18:00</p>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 p-10 rounded-[2.5rem] backdrop-blur-md hover:bg-white/10 transition-all group">
+                <div className="w-16 h-16 bg-brand-blue/20 text-brand-blue rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">
+                  ✉️
+                </div>
+                <h4 className="text-brand-blue font-black uppercase tracking-widest text-sm mb-2">{t.contact.email}</h4>
+                <p className="text-xl font-bold text-white break-all">{SITE_CONFIG.email}</p>
+                <a href={`mailto:${SITE_CONFIG.email}`} className="inline-block mt-4 text-brand-blue font-bold hover:underline">立即发邮件 →</a>
+              </div>
+            </div>
+
+            {/* Offices & Map Placeholder */}
+            <div className="lg:col-span-2 bg-white/5 border border-white/10 p-10 md:p-12 rounded-[3rem] backdrop-blur-md">
+              <h4 className="text-xl font-black text-white mb-10 flex items-center">
+                <span className="w-10 h-1 bg-brand-blue mr-4 rounded-full"></span>
+                {t.contact.address}
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {SITE_CONFIG.offices.map((office) => (
-                  <div key={office.id} className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors">
-                    <div className="flex items-start">
-                      <span className="text-3xl mr-6 bg-brand-blue/20 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">🏢</span>
+                  <div key={office.id} className="group">
+                    <div className="flex items-start space-x-5">
+                      <div className="shrink-0 w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-brand-blue transition-colors">
+                        🏢
+                      </div>
                       <div>
-                        <h4 className="text-xl font-bold text-brand-blue mb-2">{office.city[locale]} {t.contact.address}</h4>
-                        <p className="text-slate-400 font-light leading-relaxed">{office.address[locale]}</p>
+                        <h5 className="text-lg font-bold text-brand-blue mb-2">{office.city[locale]}</h5>
+                        <p className="text-slate-400 text-sm leading-relaxed font-light">{office.address[locale]}</p>
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Social Media Links in Contact Section */}
-              <div className="pt-8">
+              {/* Social Media Integration */}
+              <div className="mt-16 pt-10 border-t border-white/10">
+                <p className="text-slate-500 font-bold uppercase tracking-[0.2em] text-xs mb-6">社交媒体关注</p>
                 <div className="flex flex-wrap gap-4">
                   {SITE_CONFIG.socials.map((social) => (
-
                     <button 
                       key={social.platform}
                       onClick={() => handleSocialAction(social)}
@@ -387,29 +422,9 @@ const App: React.FC = () => {
                 </div>
               </div>
             </div>
-
-
-            {/* Contact Method Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col items-center text-center group hover:border-brand-blue transition-colors">
-                <span className="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all">📞</span>
-                <h4 className="font-bold text-brand-blue mb-2">{t.contact.phone}</h4>
-                <p className="text-slate-200 text-lg font-medium tracking-tight">{SITE_CONFIG.phone}</p>
-              </div>
-              <div className="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col items-center text-center group hover:border-brand-blue transition-colors">
-                <span className="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all">✉️</span>
-                <h4 className="font-bold text-brand-blue mb-2">{t.contact.email}</h4>
-                <p className="text-slate-200 text-lg font-medium tracking-tight">{SITE_CONFIG.email}</p>
-              </div>
-              <div className="bg-brand-blue p-8 rounded-3xl flex flex-col items-center text-center sm:col-span-2 group hover:bg-blue-600 transition-colors cursor-pointer" onClick={() => scrollTo('contact')}>
-                <span className="text-4xl mb-4">✨</span>
-                <h4 className="font-black text-xl mb-1">即刻开启全球贸易</h4>
-                <p className="text-blue-100 font-light">我们的专家团队将在 24 小时内联系您</p>
-              </div>
-            </div>
           </div>
 
-          <div className="mt-32 pt-10 border-t border-white/5 text-center text-slate-500 text-sm font-light">
+          <div className="mt-32 pt-10 border-t border-white/5 text-center text-slate-600 text-sm font-light">
             © 2025 {SITE_CONFIG.companyName[locale]}. All Rights Reserved. Empowering Global Trade.
           </div>
         </div>
