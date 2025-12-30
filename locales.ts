@@ -2,6 +2,7 @@
 import { Translation, Locale } from './types';
 
 export interface ExtendedTranslation extends Translation {
+  aboutDescription: string;
   industries: {
     title: string;
     list: { title: string; icon: string }[];
@@ -11,11 +12,14 @@ export interface ExtendedTranslation extends Translation {
 export const translations: Record<Locale, ExtendedTranslation> = {
   zh: {
     nav: { about: '关于我们', services: '业务领域', exhibitions: '展会计划', contact: '联系我们' },
+    aboutDescription: '上海爱优企服会展有限公司，立足于俄语市场，聚焦中俄双边贸易，通过多年的运营，公司已累计服务“中国出口俄罗斯企业”上千家。2024年爱优企服成功与俄罗斯龙城电商科技园，俄罗斯天雅汽配城牵手合作。为更好的服务于中国出口俄罗斯贸易不懈努力。爱优企服聚焦中国企业“走出去”解决方案，通过在俄罗斯落地的实体场景（常年展厅/MOQ订货中心）、线下买家运营方案（买卖双方链接）、线上线下双向分销的模式，为“中国制造”量身打造拓展俄语市场的外贸营销的综合服务。',
     hero: { 
       title: '连接中俄市场，助力中国制造', 
-      subtitle: '深耕俄罗斯市场，为您提供专业的组展、搭建及一站式商务落地咨询服务。', 
+      subtitle: '深耕俄语市场，为您提供专业的组展、搭建及一站式商务落地咨询服务，助力中国企业走出去。', 
       cta: '立即咨询' 
     },
+
+
     services: {
       title: '核心业务',
       list: [
@@ -204,11 +208,13 @@ export const translations: Record<Locale, ExtendedTranslation> = {
   },
   en: {
     nav: { about: 'About', services: 'Services', contact: 'Contact' },
+    aboutDescription: 'AUCHIEF EXPO (Shanghai) Co., Ltd. is deeply rooted in the Russian-speaking market, specializing in China-Russia bilateral trade. Over years of dedicated operation, we have empowered more than a thousand Chinese exporters to successfully enter the Russian market. In 2024, AUCHIEF forged strategic partnerships with the Longcheng Digital E-commerce Technology Park and the Tianya Auto Parts City in Russia, further strengthening our commitment to serving China\'s export trade. We provide comprehensive "Going Global" solutions through localized physical presence—including year-round showrooms and MOQ order centers—integrated with offline buyer engagement and a dual-channel online/offline distribution model. Our mission is to provide "Made in China" with bespoke, full-service marketing strategies to master the Russian-speaking market.',
     hero: { 
       title: 'Connecting Sino-Russian Markets', 
-      subtitle: 'Empowering Chinese manufacturers to explore the Russian market through professional exhibitions and AUCHIEF consultancy.', 
+      subtitle: 'Empowering Chinese manufacturers to expand into the Russian market through premium exhibition services and expert strategic consultancy.', 
       cta: 'Get Started' 
     },
+
     services: {
       title: 'Core Services',
       list: [
@@ -237,11 +243,13 @@ export const translations: Record<Locale, ExtendedTranslation> = {
   },
   ru: {
     nav: { about: 'О нас', services: 'Услуги', contact: 'Контакты' },
+    aboutDescription: 'Компания AUCHIEF EXPO (Шанхай) обладает глубокой экспертизой на русскоязычном рынке, специализируясь на содействии китайско-российской торговле. За годы успешной работы мы оказали поддержку более чем тысяче китайских предприятий, экспортирующих продукцию в Россию. В 2024 году AUCHIEF заключила стратегическое соглашение о сотрудничестве с российским Технопарком цифровой электронной коммерции «Лунчэн» и автоцентром «Тянья». Мы стремимся к постоянному совершенствованию услуг для поддержки китайского экспорта. AUCHIEF предлагает комплексные решения для выхода китайских компаний на внешние рынки, используя физические площадки в России (постоянные шоурумы и центры заказов MOQ), программы по привлечению покупателей и гибридную модель онлайн- и офлайн-дистрибуции. Мы создаем индивидуальные маркетинговые стратегии, помогая бренду «Сделано в Китае» эффективно расширять свое присутствие в русскоязычном регионе.',
     hero: { 
-      title: 'Ваш мост в бизнес между Китаем и Россией (OOO аучиф)', 
-      subtitle: 'Профессиональная организация выставок и бизнес-консалтинг AUCHIEF для развития вашего бизнеса.', 
+      title: 'Ваш мост в бизнес между Китаем и Россией', 
+      subtitle: 'Профессиональная организация выставок и комплексный бизнес-консалтинг для эффективного развития вашего бизнеса на рынках России и СНГ.', 
       cta: 'Связаться' 
     },
+
     services: {
       title: 'Наши Услуги',
       list: [

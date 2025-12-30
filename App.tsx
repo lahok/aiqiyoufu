@@ -225,13 +225,9 @@ const App: React.FC = () => {
               <span className="text-blue-500 font-black uppercase tracking-[0.2em] text-sm mb-6 block">{t.nav.about}</span>
               <h2 className="text-4xl md:text-5xl font-black mb-10 leading-tight">{SITE_CONFIG.companyName[locale]}</h2>
               <p className="text-slate-400 text-xl leading-relaxed mb-10 font-light">
-                {locale === 'zh' 
-                  ? '上海爱优企服会展有限公司（AUCHIEF EXPO）是一家专注中俄双边经贸服务的创新型咨询机构。我们协助中国优质制造业通过“展会经济”与“商务考察”快速打入俄罗斯及独联体市场，提供包括组展、搭建、法律、物流及市场准入在内的一站式合规支持。'
-                  : locale === 'en'
-                  ? 'SHANGHAI AUCHIEF EXPO CO.,LTD is an innovative consultancy specializing in China-Russia bilateral trade. We help quality manufacturers enter Russian markets via exhibition services and comprehensive business support.'
-                  : 'OOO аучиф — это инновационное консалтинговое агентство, специализирующееся на услугах в сфере торговли между Китаем и Россией.'
-                }
+                {t.aboutDescription}
               </p>
+
               
               <div className="flex flex-wrap gap-6">
                 {SITE_CONFIG.socials.map((social) => (
