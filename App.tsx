@@ -210,6 +210,27 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* Services Section */}
+      <section id="services" className="py-32 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-24">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">{t.services.title}</h2>
+            <div className="h-1.5 w-24 bg-brand-blue mx-auto rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {t.services.list.map((service, i) => (
+              <div key={i} className="bg-white p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all group">
+                <div className="w-20 h-20 bg-slate-50 rounded-2xl flex items-center justify-center text-4xl mb-8 group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all duration-500">
+                  {service.icon}
+                </div>
+                <h3 className="text-2xl font-black mb-4 text-slate-900">{service.title}</h3>
+                <p className="text-slate-500 text-lg leading-relaxed">{service.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Workflow Section - New */}
       <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
