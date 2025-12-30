@@ -12,7 +12,19 @@ const App: React.FC = () => {
   const [toast, setToast] = useState<{ message: string; visible: boolean }>({ message: '', visible: false });
   const [selectedExhibition, setSelectedExhibition] = useState<Exhibition | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [certOffset, setCertOffset] = React.useState(0);
   const t = translations[locale];
+
+  const credentials = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+  
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCertOffset((prev) => (prev + 1) % credentials.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+
 
 
   const scrollTo = (id: string) => {
@@ -125,26 +137,56 @@ const App: React.FC = () => {
       {/* About Section - Comprehensive Brand Identity */}
       <section id="about" className="py-32 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-20 items-center mb-32">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-20 items-stretch mb-32">
+            <div className="flex flex-col justify-center">
               <span className="text-brand-blue font-black uppercase tracking-[0.2em] text-sm mb-6 block">{t.nav.about}</span>
               <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight">
                 {SITE_CONFIG.companyName[locale]}
               </h2>
-              <p className="text-slate-600 text-xl leading-relaxed mb-8 font-light italic border-l-4 border-brand-blue pl-6">
+              <p className="text-slate-600 text-xl leading-relaxed font-light italic border-l-4 border-brand-blue pl-6">
                 {t.aboutDescription}
               </p>
             </div>
 
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-brand-blue/5 rounded-[3rem] blur-2xl group-hover:bg-brand-blue/10 transition-colors"></div>
-              <img 
-                src="/about-office.jpg" 
-                alt="About Us" 
-                className="relative rounded-[2.5rem] shadow-2xl w-full h-[500px] object-cover"
-                onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000'; }}
-              />
+            <div className="relative group flex flex-col">
+              <div className="absolute -inset-10 bg-brand-blue/5 rounded-[3rem] blur-3xl pointer-events-none"></div>
+              <div className="relative flex-1 min-h-[400px]">
+                {credentials.map((char, index) => (
+                  <div 
+                    key={char} 
+                    onClick={() => setSelectedImage(`/credential/${char}.png`)}
+                    className={`absolute inset-0 transition-all duration-1000 transform ${
+                      index === certOffset 
+                        ? 'opacity-100 scale-100 z-20' 
+                        : 'opacity-0 scale-95 z-10 pointer-events-none'
+                    }`}
+                  >
+                    <div className="w-full h-full bg-white p-6 rounded-[2.5rem] shadow-2xl border border-slate-200 hover:border-brand-blue/30 cursor-zoom-in group/cert flex items-center justify-center overflow-hidden">
+                      <img 
+                        src={`/credential/${char}.png`} 
+                        alt="Credential" 
+                        className="max-w-full max-h-full object-contain drop-shadow-xl transition-transform duration-700 group-hover/cert:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              
+              {/* Pagination Dots */}
+              <div className="flex justify-center space-x-2 mt-8">
+                {credentials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCertOffset(index)}
+                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${certOffset === index ? 'bg-brand-blue w-5' : 'bg-slate-300 hover:bg-slate-400'}`}
+                  />
+                ))}
+              </div>
             </div>
+
+
           </div>
 
           {/* Advantages Grid */}
@@ -166,37 +208,8 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* Credentials Carousel */}
-          <div className="mb-32">
-            <div className="text-center mb-16">
-              <h3 className="text-3xl font-black text-slate-900 mb-4">{t.credentials.title}</h3>
-              <div className="h-1 w-16 bg-brand-blue mx-auto rounded-full"></div>
-            </div>
-            <div className="relative -mx-4 sm:-mx-6 lg:-mx-8">
-              <div className="animate-scroll flex space-x-6 px-8 hover:[animation-play-state:paused] cursor-pointer">
-                {[...['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], ...['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']].map((char, idx) => (
-                  <div 
-                    key={`${char}-${idx}`}
-                    onClick={() => setSelectedImage(`/credential/${char}.png`)}
-                    className="flex-shrink-0 w-48 md:w-60 bg-white p-3 rounded-2xl shadow-sm border border-slate-200 hover:shadow-xl transition-all cursor-zoom-in group/item"
-                  >
-                    <div className="aspect-[3/4] overflow-hidden rounded-xl bg-slate-100">
-                      <img 
-                        src={`/credential/${char}.png`} 
-                        alt={`Credential ${char}`} 
-                        className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-              <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
-            </div>
-          </div>
-
           {/* Exhibition Snaps Carousel */}
+
           <div>
             <div className="text-center mb-16">
               <h3 className="text-3xl font-black text-slate-900 mb-4">{(t as any).exhibitionsSnap?.title}</h3>
