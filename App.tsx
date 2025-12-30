@@ -134,21 +134,8 @@ const App: React.FC = () => {
               <p className="text-slate-600 text-xl leading-relaxed mb-8 font-light italic border-l-4 border-brand-blue pl-6">
                 {t.aboutDescription}
               </p>
-              <div className="flex flex-wrap gap-4 mt-12">
-                {SITE_CONFIG.socials.map((social) => (
-                  <button 
-                    key={social.platform}
-                    onClick={() => handleSocialAction(social)}
-                    className="flex items-center space-x-3 bg-slate-50 border border-slate-100 px-6 py-3 rounded-2xl hover:bg-white hover:shadow-lg transition-all group"
-                  >
-                    <svg className="w-5 h-5 fill-slate-400 group-hover:fill-brand-blue transition-colors" viewBox="0 0 24 24">
-                      <path d={social.icon} />
-                    </svg>
-                    <span className="font-bold text-slate-600 group-hover:text-brand-blue">{social.platform}</span>
-                  </button>
-                ))}
-              </div>
             </div>
+
             <div className="relative group">
               <div className="absolute -inset-4 bg-brand-blue/5 rounded-[3rem] blur-2xl group-hover:bg-brand-blue/10 transition-colors"></div>
               <img 
@@ -402,20 +389,42 @@ const App: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Office Info Cards */}
+            {/* Office Info Cards & Socials */}
             <div className="space-y-6">
-              {SITE_CONFIG.offices.map((office) => (
-                <div key={office.id} className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors">
-                  <div className="flex items-start">
-                    <span className="text-3xl mr-6 bg-brand-blue/20 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">🏢</span>
-                    <div>
-                      <h4 className="text-xl font-bold text-brand-blue mb-2">{office.city[locale]} {t.contact.address}</h4>
-                      <p className="text-slate-400 font-light leading-relaxed">{office.address[locale]}</p>
+              <div className="grid grid-cols-1 gap-6">
+                {SITE_CONFIG.offices.map((office) => (
+                  <div key={office.id} className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors">
+                    <div className="flex items-start">
+                      <span className="text-3xl mr-6 bg-brand-blue/20 w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">🏢</span>
+                      <div>
+                        <h4 className="text-xl font-bold text-brand-blue mb-2">{office.city[locale]} {t.contact.address}</h4>
+                        <p className="text-slate-400 font-light leading-relaxed">{office.address[locale]}</p>
+                      </div>
                     </div>
                   </div>
+                ))}
+              </div>
+
+              {/* Social Media Links in Contact Section */}
+              <div className="pt-8">
+                <div className="flex flex-wrap gap-4">
+                  {SITE_CONFIG.socials.map((social) => (
+
+                    <button 
+                      key={social.platform}
+                      onClick={() => handleSocialAction(social)}
+                      className="flex items-center space-x-3 bg-white/5 border border-white/10 px-6 py-4 rounded-2xl hover:bg-brand-blue hover:border-brand-blue transition-all group"
+                    >
+                      <svg className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+                        <path d={social.icon} />
+                      </svg>
+                      <span className="font-bold text-slate-300 group-hover:text-white">{social.platform}</span>
+                    </button>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
+
 
             {/* Contact Method Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
