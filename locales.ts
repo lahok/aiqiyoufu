@@ -61,6 +61,15 @@ export const translations: Record<Locale, ExtendedTranslation> = {
         { title: '能源化工', icon: '🛢️' }
       ]
     },
+    workflow: {
+      title: '服务流程',
+      list: [
+        { title: '需求沟通', desc: '深入了解您的产品特点与出海目标', icon: '01' },
+        { title: '方案定制', desc: '为您量身打造展位设计与市场落地策略', icon: '02' },
+        { title: '签约服务', desc: '确立合作关系，全方位启动筹备工作', icon: '03' },
+        { title: '落地执行', desc: '从莫斯科搭建到现场买家运营全程护航', icon: '04' }
+      ]
+    },
     exhibitionTable: {
       title: '2026 重点展会计划',
       columns: ['展会名称', '城市', '时间', '状态'],
@@ -270,6 +279,15 @@ export const translations: Record<Locale, ExtendedTranslation> = {
         { title: 'Energy & Chemical', icon: '🛢️' }
       ]
     },
+    workflow: {
+      title: 'Our Workflow',
+      list: [
+        { title: 'Consulting', desc: 'Understanding your product and goals.', icon: '01' },
+        { title: 'Strategy', desc: 'Tailored booth design and market entry plan.', icon: '02' },
+        { title: 'Agreement', desc: 'Confirming partnership and preparation.', icon: '03' },
+        { title: 'Execution', desc: 'On-site support and buyer engagement.', icon: '04' }
+      ]
+    },
     exhibitionTable: { title: '', columns: [] },
     contact: {
       title: 'Contact Us',
@@ -317,6 +335,15 @@ export const translations: Record<Locale, ExtendedTranslation> = {
         { title: 'Электроника и ИТ', icon: '📱' },
         { title: 'Сельхозтехника', icon: '🚜' },
         { title: 'Энергетика и Химия', icon: '🛢️' }
+      ]
+    },
+    workflow: {
+      title: 'Процесс работы',
+      list: [
+        { title: 'Консультация', desc: 'Понимаем ваш продукт и цели.', icon: '01' },
+        { title: 'Стратегия', desc: 'Индивидуальный дизайн и план выхода.', icon: '02' },
+        { title: 'Договор', desc: 'Подтверждение партнерства и подготовка.', icon: '03' },
+        { title: 'Реализация', desc: 'Поддержка на месте и работа с покупателями.', icon: '04' }
       ]
     },
     exhibitionTable: { title: '', columns: [] },
