@@ -90,34 +90,43 @@ const App: React.FC = () => {
       <nav className="glass-header fixed w-full top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <img src="/logo.png" alt="AUCHIEF EXPO" className="h-11 w-auto object-contain" />
-              <div className="hidden sm:block ml-4">
-                <span className="text-xl font-bold text-slate-800 tracking-tight">
+            <div className="flex items-center cursor-pointer shrink-0" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <img src="/logo.png" alt="AUCHIEF EXPO" className="h-10 w-auto object-contain" />
+              <div className="hidden lg:block ml-4">
+                <span className="text-lg font-bold text-slate-800 tracking-tight">
                   {SITE_CONFIG.companyName[locale]}
                 </span>
               </div>
             </div>
             
-            <div className="hidden md:flex items-center space-x-10">
-              <button onClick={() => scrollTo('about')} className="text-sm font-bold text-slate-600 hover:text-brand-blue transition-colors uppercase tracking-widest">{t.nav.about}</button>
-              <button onClick={() => scrollTo('services')} className="text-sm font-bold text-slate-600 hover:text-brand-blue transition-colors uppercase tracking-widest">{t.nav.services}</button>
-              {locale === 'zh' && (
-                <button onClick={() => scrollTo('exhibitions')} className="text-sm font-bold text-slate-600 hover:text-brand-blue transition-colors uppercase tracking-widest">{t.nav.exhibitions}</button>
-              )}
-              <button onClick={() => scrollTo('contact')} className="text-sm font-bold text-slate-600 hover:text-brand-blue transition-colors uppercase tracking-widest">{t.nav.contact}</button>
+            <div className="flex items-center space-x-2 sm:space-x-6">
+              <div className="hidden md:flex items-center space-x-6 lg:space-x-10">
+                <button onClick={() => scrollTo('about')} className="text-sm font-bold text-slate-600 hover:text-brand-blue transition-colors uppercase tracking-widest">{t.nav.about}</button>
+                <button onClick={() => scrollTo('services')} className="text-sm font-bold text-slate-600 hover:text-brand-blue transition-colors uppercase tracking-widest">{t.nav.services}</button>
+                {locale === 'zh' && (
+                  <button onClick={() => scrollTo('exhibitions')} className="text-sm font-bold text-slate-600 hover:text-brand-blue transition-colors uppercase tracking-widest">{t.nav.exhibitions}</button>
+                )}
+                <button onClick={() => scrollTo('contact')} className="text-sm font-bold text-slate-600 hover:text-brand-blue transition-colors uppercase tracking-widest">{t.nav.contact}</button>
+              </div>
               
-              <div className="relative group">
-                <select 
-                  value={locale} 
-                  onChange={(e) => setLocale(e.target.value as Locale)}
-                  className="appearance-none bg-slate-100 border border-slate-200 px-5 py-2 pr-10 rounded-full text-xs font-bold focus:ring-2 focus:ring-brand-blue outline-none cursor-pointer hover:bg-slate-200 transition-colors"
-                >
-                  <option value="zh">ZH 中文</option>
-                  <option value="en">EN English</option>
-                  <option value="ru">RU Русский</option>
-                </select>
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[10px] text-slate-500">▼</div>
+              <div className="flex items-center space-x-1 bg-slate-100/50 p-1 rounded-full border border-slate-200">
+                {[
+                  { id: 'zh', label: 'ZH 中文' },
+                  { id: 'en', label: 'EN English' },
+                  { id: 'ru', label: 'RU Русский' }
+                ].map((lang) => (
+                  <button
+                    key={lang.id}
+                    onClick={() => setLocale(lang.id as Locale)}
+                    className={`px-2 sm:px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] font-black transition-all ${
+                      locale === lang.id 
+                        ? 'bg-white text-brand-blue shadow-sm ring-1 ring-slate-200' 
+                        : 'text-slate-400 hover:text-brand-blue'
+                    }`}
+                  >
+                    {lang.label}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
