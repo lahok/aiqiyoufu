@@ -316,7 +316,7 @@ const App: React.FC = () => {
             <h3 className="text-3xl font-black text-slate-900 mb-4">{t.exhibitionsSnap?.title}</h3>
             <div className="h-1 w-16 bg-brand-blue mx-auto rounded-full"></div>
           </div>
-          <div className="relative -mx-4 sm:-mx-6 lg:-mx-8">
+          <div className="relative -mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden">
             <div className="animate-scroll-reverse flex space-x-6 px-8 hover:[animation-play-state:paused] cursor-pointer">
               {[...['a', 'b', 'c', 'd', 'e'], ...['a', 'b', 'c', 'd', 'e']].map((char, idx) => (
                 <div 
