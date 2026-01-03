@@ -37,21 +37,40 @@ const App: React.FC = () => {
     setTimeout(() => setToast({ message: '', visible: false }), 3000);
   };
 
+  const copyToClipboard = (text: string, successMsg: string) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(successMsg);
+      }).catch(() => {
+        showToast('Copy failed');
+      });
+    } else {
+      // Fallback
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMsg);
+      } catch (err) {
+        showToast('Copy failed');
+      }
+      document.body.removeChild(textArea);
+    }
+  };
+
   const handleSocialAction = (social: typeof SITE_CONFIG.socials[0]) => {
     if (social.type === 'link' && social.url) {
       window.open(social.url, '_blank');
     } else {
       // For 'copy' type or if URL is missing
-      navigator.clipboard.writeText(social.id).then(() => {
-        const msg = locale === 'zh' 
-          ? `已复制 ${social.platform} 账号: ${social.id}` 
-          : locale === 'en' 
-          ? `Copied ${social.platform} ID: ${social.id}`
-          : `Скопировано ${social.platform} ID: ${social.id}`;
-        showToast(msg);
-      }).catch(() => {
-        showToast('Error copying to clipboard');
-      });
+      const msg = locale === 'zh' 
+        ? `已复制 ${social.platform} 账号: ${social.id}` 
+        : locale === 'en' 
+        ? `Copied ${social.platform} ID: ${social.id}`
+        : `Скопировано ${social.platform} ID: ${social.id}`;
+      copyToClipboard(social.id, msg);
     }
   };
 
@@ -362,42 +381,65 @@ const App: React.FC = () => {
       )}
 
       {/* Contact Section - Simplified & Professional */}
-      <section id="contact" className="py-24 bg-slate-900 text-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-24 contact-section text-white relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-blue/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-blue/5 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             {/* Left: Brand & Direct Contact */}
-            <div>
-              <h2 className="text-3xl md:text-4xl font-black mb-8">
+            <div className="animate-in fade-in slide-in-from-left-8 duration-700">
+              <div className="inline-block px-3 py-1 rounded-full bg-brand-blue/20 text-brand-blue text-[10px] font-bold uppercase tracking-widest mb-4">
+                Global Network
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black mb-8">
                 {t.contact.title}
               </h2>
               
-              <div className="space-y-8">
-                <div>
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">{t.contact.phone}</p>
-                  <a href={`tel:${SITE_CONFIG.phone}`} className="text-2xl font-black hover:text-brand-blue transition-colors">
-                    {SITE_CONFIG.phone}
-                  </a>
+              <div className="space-y-10">
+                <div className="group cursor-pointer" onClick={() => {
+                  copyToClipboard(SITE_CONFIG.phone, locale === 'zh' ? '已复制电话号码' : 'Phone number copied');
+                }}>
+                  <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 flex items-center">
+                    <span className="w-8 h-px bg-slate-800 mr-3"></span>
+                    {t.contact.phone}
+                  </p>
+                  <div className="flex items-center space-x-4">
+                    <span className="text-3xl md:text-4xl font-black group-hover:text-brand-blue transition-colors">
+                      {SITE_CONFIG.phone}
+                    </span>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] bg-white/10 px-2 py-1 rounded">点击复制</span>
+                  </div>
                 </div>
 
-                <div>
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">{t.contact.email}</p>
-                  <a href={`mailto:${SITE_CONFIG.email}`} className="text-2xl font-black hover:text-brand-blue transition-colors underline decoration-brand-blue underline-offset-8">
-                    {SITE_CONFIG.email}
-                  </a>
+                <div className="group cursor-pointer" onClick={() => {
+                  copyToClipboard(SITE_CONFIG.email, locale === 'zh' ? '已复制邮箱' : 'Email copied');
+                }}>
+                  <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 flex items-center">
+                    <span className="w-8 h-px bg-slate-800 mr-3"></span>
+                    {t.contact.email}
+                  </p>
+                  <div className="flex items-center space-x-4">
+                    <span className="text-2xl md:text-3xl font-black group-hover:text-brand-blue transition-colors underline decoration-brand-blue/30 underline-offset-8">
+                      {SITE_CONFIG.email}
+                    </span>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] bg-white/10 px-2 py-1 rounded">点击复制</span>
+                  </div>
                 </div>
               </div>
 
               {/* Socials - Compact */}
-              <div className="flex gap-4 mt-12">
+              <div className="flex gap-4 mt-16">
                 {SITE_CONFIG.socials.map((social) => (
                   <button 
                     key={social.platform}
                     onClick={() => handleSocialAction(social)}
-                    className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-brand-blue hover:border-brand-blue transition-all"
+                    className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center hover:bg-white hover:scale-110 transition-all duration-300 group/icon"
                     title={social.platform}
                   >
-                    <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 fill-white group-hover/icon:fill-brand-dark transition-colors" viewBox="0 0 24 24">
                       <path d={social.icon} />
                     </svg>
                   </button>
@@ -405,16 +447,33 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            {/* Right: Office Addresses - Clean List */}
-            <div className="bg-white/5 border border-white/10 p-8 md:p-10 rounded-[2.5rem] backdrop-blur-sm">
-              <h4 className="text-sm font-black text-brand-blue uppercase tracking-widest mb-8">{t.contact.address}</h4>
-              <div className="space-y-8">
+            {/* Right: Office Addresses - Premium Card */}
+            <div className="bg-white/5 border border-white/10 p-8 md:p-12 rounded-[3rem] backdrop-blur-xl relative group animate-in fade-in slide-in-from-right-8 duration-700">
+              <div className="absolute -inset-px bg-gradient-to-br from-brand-blue/20 to-transparent rounded-[3rem] -z-10 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+              
+              <h4 className="text-sm font-black text-brand-blue uppercase tracking-[0.3em] mb-10 flex items-center">
+                {t.contact.address}
+                <span className="ml-4 h-px flex-1 bg-gradient-to-r from-brand-blue/30 to-transparent"></span>
+              </h4>
+
+              <div className="space-y-10">
                 {SITE_CONFIG.offices.map((office) => (
-                  <div key={office.id} className="flex space-x-4">
-                    <span className="text-xl mt-1">📍</span>
+                  <div key={office.id} className="flex items-start space-x-6 group/item">
+                    <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center shrink-0 group-hover/item:bg-brand-blue transition-colors duration-500">
+                      <svg className="w-6 h-6 text-brand-blue group-hover/item:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
                     <div>
-                      <h5 className="font-bold text-white mb-1">{office.city[locale]}</h5>
-                      <p className="text-slate-400 text-sm leading-relaxed font-light">{office.address[locale]}</p>
+                      <h5 className="font-bold text-white text-lg mb-2 flex items-center">
+                        {office.city[locale]}
+                        {office.city.en === 'Moscow' && <span className="ml-2 text-[10px] bg-white/10 px-1.5 py-0.5 rounded uppercase tracking-tighter opacity-50 font-normal">RU</span>}
+                        {office.city.en === 'Shanghai' && <span className="ml-2 text-[10px] bg-white/10 px-1.5 py-0.5 rounded uppercase tracking-tighter opacity-50 font-normal">CN</span>}
+                      </h5>
+                      <p className="text-slate-400 text-sm leading-relaxed font-light group-hover/item:text-slate-300 transition-colors">
+                        {office.address[locale]}
+                      </p>
                     </div>
                   </div>
                 ))}

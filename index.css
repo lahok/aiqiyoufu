@@ -26,6 +26,12 @@ body {
     background-position: center;
 }
 
+.contact-section {
+    background: radial-gradient(circle at top right, rgba(30, 58, 138, 0.15), transparent),
+                radial-gradient(circle at bottom left, rgba(30, 58, 138, 0.1), transparent),
+                #0f172a;
+}
+
 .glass-header {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
