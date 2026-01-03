@@ -55,10 +55,10 @@ export const translations: Record<Locale, ExtendedTranslation> = {
     industries: {
       title: '优势行业',
       list: [
-        { title: '工业机械', icon: '⚙️' },
-        { title: '电子信息', icon: '📱' },
-        { title: '农业机械', icon: '🚜' },
-        { title: '能源化工', icon: '🛢️' }
+        { title: '小家电', icon: '🏠', image: '/core_business_images/xjd.jpg' },
+        { title: '汽车配件', icon: '🚗', image: '/core_business_images/qcpj.jpg' },
+        { title: '玩具', icon: '🧸', image: '/core_business_images/wj.jpg' },
+        { title: '清洁用品', icon: '🧹', image: '/core_business_images/qj.jpg' }
       ]
     },
     workflow: {
@@ -273,10 +273,10 @@ export const translations: Record<Locale, ExtendedTranslation> = {
     industries: {
       title: 'Industry Focus',
       list: [
-        { title: 'Industrial Machinery', icon: '⚙️' },
-        { title: 'Electronics & IT', icon: '📱' },
-        { title: 'Agri-Machinery', icon: '🚜' },
-        { title: 'Energy & Chemical', icon: '🛢️' }
+        { title: 'Home Appliances', icon: '🏠', image: '/core_business_images/xjd.jpg' },
+        { title: 'Auto Parts', icon: '🚗', image: '/core_business_images/qcpj.jpg' },
+        { title: 'Toys', icon: '🧸', image: '/core_business_images/wj.jpg' },
+        { title: 'Cleaning Products', icon: '🧹', image: '/core_business_images/qj.jpg' }
       ]
     },
     workflow: {
@@ -331,10 +331,10 @@ export const translations: Record<Locale, ExtendedTranslation> = {
     industries: {
       title: 'Отраслевой фокус',
       list: [
-        { title: 'Пром. оборудование', icon: '⚙️' },
-        { title: 'Электроника и ИТ', icon: '📱' },
-        { title: 'Сельхозтехника', icon: '🚜' },
-        { title: 'Энергетика и Химия', icon: '🛢️' }
+        { title: 'Мелкая бытовая техника', icon: '🏠', image: '/core_business_images/xjd.jpg' },
+        { title: 'Автозапчасти', icon: '🚗', image: '/core_business_images/qcpj.jpg' },
+        { title: 'Игрушки', icon: '🧸', image: '/core_business_images/wj.jpg' },
+        { title: 'Чистящие средства', icon: '🧹', image: '/core_business_images/qj.jpg' }
       ]
     },
     workflow: {

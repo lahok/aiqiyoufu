@@ -266,7 +266,7 @@ const App: React.FC = () => {
             {t.industries.list.map((ind, i) => (
               <div key={i} className="relative group overflow-hidden rounded-[2rem] h-64 bg-slate-900">
                 <img 
-                  src={i === 0 ? '/industries/machinery.jpg' : i === 1 ? '/industries/electronics.jpg' : i === 2 ? '/industries/agriculture.jpg' : '/industries/energy.jpg'} 
+                  src={(ind as any).image} 
                   className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700"
                   alt={ind.title}
                 />
